@@ -1,0 +1,9 @@
+Basic Installations :
+	conda env create -f nlp_course_env.yml
+	conda activate nlp_course
+	jupyter notebook
+
+NLP Installations:
+	conda install -c conda-forge 
+	python -m spacy download env
+	
