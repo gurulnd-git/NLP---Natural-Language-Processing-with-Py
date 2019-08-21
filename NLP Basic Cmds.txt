@@ -1,2 +1,110 @@
 //NLP Basics
 
+import spacy
+nlp = spacy.load('en_core_web_sm')
+doc = nlp(u'Tesla is looking at buying U.S. startup for 6 million) //unicode string
+for token in doc:
+	print(token.text, token.pos, token.pos_, token.dep_)
+
+nlp.pipeline
+nlp.pipe_names
+doc2 = nlp(u"Tesla isn't   looking into startups anymore.")
+for token in doc2	
+	print(token.text, token.pos, token.pos_, token.dep_)
+
+doc2[0].pos_
+// Check spacy.io/api/annotations [syntactical dependencies]
+doc2[0].dep_
+nlp(u'Although commmonly attributed to John Lennon from his song \"Beautiful Boy\", \\\n",
+    "the phrase \"Life is what happens to us while we are making other plans\" was written by \\\n",
+    "cartoonist Allen Saunders and published in Reader\\'s Digest in 1957, when Lennon was 17.')"
+life_quote = doc3[16:30],
+    print(life_quote)
+type(life_quote)
+type(doc3)
+doc4 = nlp(u'This is the first sentence. This is another sentence. This is the last sentence.')
+for sentence in doc4.sents:
+	print(sentence)
+doc4[6]
+doc4[6].is_sent_start
+doc4[8].is_sent_start
+
+
+//Tokenization
+import spacy
+nlp = spacy.load('en_core_wen_sm')
+mystring = '"we\'re moving to L.A.!"'
+print(mystring)
+for token in doc
+	print(tocken.text)
+doc2 = nlp(u"We're here to help! Send snail-mail, email support@outsite.com or visit us at http://www.oursite.com!")
+doc3 = nlp(u"A 5km NYC cab ride costs $10.30")
+for t in doc3:
+	print(t)
+doc4 = nlp(u"Let's visit St. Loui in the U.S. next year")
+for t in doc4:
+	print(t)
+len(doc4)
+len(doc4.vocab)
+doc5 = nlp(u"It is better to give than receive")
+doc5[0]
+doc5[2:5]
+
+doc8 = nlp(u'Apple to build a Hong Kong factory for $6 million dollars')
+for tocken in doc8:
+	print(tocken.text, end = ' |')
+for entity in doc8.ents:
+	print(entity)
+	print(entity.label_)
+	print(str(spacy.explain(entity.label_)))
+	print('\n')
+
+doc9 = nlp(u'Autonomus cars shift insurance liability towards manufactures.')
+for chunk in doc9.noun_chuncks:
+		print(chunk)
+
+from spacy imort displacy
+doc = nlp (u'Apple is goint to build a new U.K. factory for $6 million.')
+displacy.render(doc,style='dep',jupyter=True,options={'distance':70})
+
+doc = nlp(u"Over the last quater Apple sold nearly 20 thousand iPods for $7 million.")
+displacy.render(doc,style='ent', jupyter=True)
+doc = nlp(u"This is a sentence")
+displacy.serve(doc,style='dep')
+
+
+
+// Stemming
+import nltk
+from nltk nltk.stem.porter import PorterStemmer
+p_stemmer = PorterStemmer()
+words = ['run','runner','ran','runs','easily','fairly']
+for word in words:
+	print(word + '---->' + p_stemmer.stem(word))
+from nltk.stem.snowball import SnowballStemmer
+s_stemmer = SnowballStemmer(language='english')
+for word in words:
+	print(word + '---->' + s_stemmer.stem(word))
+words = ['generous','generation','generously','generate']
+for word in words:
+	print(word + '---->' + s_stemmer.stem(word))
+	
+
+
+
+// Lemmatization
+import spacy
+nlp = spacy.load('en_core_web_sm')
+doc1 = nlp(u"I am a runner running in a race because I love to run since I ran today.")
+for token in doc1:
+		print(token.text,'\t',token.pos_,'\t',token.lemma,'\t',token.lemma_)
+	
+def show_lemmas(text):
+	for token in text:
+		print(f'{token.text:{12}} {token.pos_:{6}} {token.lemma:<{22}} {token.lemma_}')
+
+doc2 = nlp(u"I saw ten mice today!")
+show_lemmas(doc2)
+
+
+
